@@ -213,7 +213,7 @@ require('load-grunt-tasks')(grunt);
 // importKVM at Organization and Environment level. See apigee_kvm task above
 grunt.registerTask('importKVMs', ['apigee_kvm:' + grunt.config.get("apigee_profiles")[grunt.option('env')].org + '-' + grunt.option("env"), 'apigee_kvm:' + grunt.config.get("apigee_profiles")[grunt.option('env')].org]);
 
-grunt.registerTask('buildApiBundle', 'Build zip without importing it to Edge', ['apigeeGruntPluginBanner', 'prompt', 'clean', 'saveGitRevision', 'mkdir','copy', 'xmlpoke', 'string-replace', 'jshint', 'eslint', 'complexity', /*'shell'*/ 'compressAlias']);
+grunt.registerTask('buildApiBundle', 'Build zip without importing it to Edge', ['clean', 'saveGitRevision', 'mkdir','copy', 'xmlpoke', 'string-replace', 'complexity', /*'shell'*/ 'compressAlias']);
   //1. import revision bumping revision id
   grunt.registerTask('IMPORT_DEPLOY_BUMP_REVISION', [ 'buildApiBundle', 'getDeployedApiRevisions', 'undeployApiRevision',
     'apigee_import_api_bundle', 'installNpmRevisionAlias', 'deployApiRevisionAlias', 'executeTests', /*'shell:run_jmeter_tests',*/ 'notify:ApiDeployed']);
@@ -224,7 +224,7 @@ grunt.registerTask('buildApiBundle', 'Build zip without importing it to Edge', [
 
   //3. import revision and run seamless deployment
   grunt.registerTask('DEPLOY_IMPORT_BUMP_SEAMLESS_REVISION', [ 'buildApiBundle', 'getDeployedApiRevisions', 'apigee_import_api_bundle',
-  	'installNpmRevisionAlias', 'deployApiRevisionAlias', 'executeTests', /*'shell:run_jmeter_tests',*/ 'notify:ApiDeployed']);
+  	'installNpmRevisionAlias', 'deployApiRevisionAlias', /*'executeTests', 'shell:run_jmeter_tests',*/ 'notify:ApiDeployed']);
 
   //set to DEPLOY_IMPORT_BUMP_SEAMLESS_REVISION by default. This is critical for production for seamless deploymen and not lose traffic
   grunt.registerTask('default', [ /*'importKVMs',*/'DEPLOY_IMPORT_BUMP_SEAMLESS_REVISION' ]);
