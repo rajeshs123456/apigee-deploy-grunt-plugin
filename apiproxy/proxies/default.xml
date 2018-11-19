@@ -6,7 +6,6 @@
             <Description/>
             <Request/>
             <Response>
-@@EXAMPLE-STEP-COMMON-XML-TO-JSON-GIT-SUBMODULE-FRAGMENT#1
             </Response>
             <Condition>(proxy.pathsuffix MatchesPath &quot;/apigee/**&quot;) and (request.verb = &quot;GET&quot;)</Condition>
         </Flow>
@@ -14,7 +13,6 @@
             <Description/>
             <Request/>
             <Response>
-@@EXAMPLE-STEP-COMMON-XML-TO-JSON-GIT-SUBMODULE-FRAGMENT#2
             </Response>
             <Condition>(proxy.pathsuffix MatchesPath &quot;/forecastweather_node/**&quot;) and (request.verb = &quot;GET&quot;)</Condition>
         </Flow>
@@ -22,7 +20,6 @@
             <Description/>
             <Request/>
             <Response>
-@@EXAMPLE-STEP-COMMON-XML-TO-JSON-GIT-SUBMODULE-FRAGMENT#3
             </Response>
             <Condition>(proxy.pathsuffix MatchesPath &quot;/images/**&quot;) and (request.verb = &quot;GET&quot;)</Condition>
         </Flow>
