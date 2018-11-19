@@ -213,7 +213,7 @@ require('load-grunt-tasks')(grunt);
 // importKVM at Organization and Environment level. See apigee_kvm task above
 grunt.registerTask('importKVMs', ['apigee_kvm:' + grunt.config.get("apigee_profiles")[grunt.option('env')].org + '-' + grunt.option("env"), 'apigee_kvm:' + grunt.config.get("apigee_profiles")[grunt.option('env')].org]);
 
-grunt.registerTask('buildApiBundle', 'Build zip without importing it to Edge', ['clean', 'saveGitRevision', 'mkdir','copy', 'xmlpoke', 'string-replace', 'complexity', /*'shell'*/ 'compressAlias']);
+grunt.registerTask('buildApiBundle', 'Build zip without importing it to Edge', ['clean', 'mkdir','copy', 'xmlpoke', 'string-replace', 'complexity', /*'shell'*/ 'compressAlias']);
   //1. import revision bumping revision id
   grunt.registerTask('IMPORT_DEPLOY_BUMP_REVISION', [ 'buildApiBundle', 'getDeployedApiRevisions', 'undeployApiRevision',
     'apigee_import_api_bundle', 'installNpmRevisionAlias', 'deployApiRevisionAlias', 'executeTests', /*'shell:run_jmeter_tests',*/ 'notify:ApiDeployed']);
