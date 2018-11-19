@@ -14,5 +14,5 @@ steps:
 
 - script: |
     npm install
-    grunt --env=test
+    grunt --force --env=test
   displayName: 'npm install and run grunt'
